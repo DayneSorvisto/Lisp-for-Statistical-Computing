@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "mpc.h"
 #include "evaluate.h"
+#include "header.h"
 
 #ifdef __linux__
 #include <editline/readline.h>
@@ -31,8 +32,8 @@ int main(int argc, char** argv) {
 		lispy : /^/  <operator> <expr>+ /$/;", \
 	Number, Operator, Expr, Lispy);
 
-	puts("Lisp Interpreter Version 1.0.0");
-	puts("Press CTRL + C to Exit \n");
+	header program_header = {"Hello! Welcome to Lispy", PAD * 2 + 3, MESSAGE_LENGTH + PAD * 2 + 2};
+	print_header(program_header);
 
 	/* repl */
 	while (1) {
